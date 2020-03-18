@@ -17,18 +17,15 @@ int main() {
 	int prime_fact_list[101][2000] = { 0, };
 	int prime_list[2000] = { 0, };
 
-	//n과 n개의 숫자 입력받아서 배열에 저장
+	//n과 n개의 숫자 입력받아서 배열에 저장, 그 중 max값 구하기
 	int n = 0;
 	scanf("%d",&n);
+	int max_val = 0;
 	for (int i = 0; i < n; i++) {
 		scanf("%d", &prime_fact_list[i][0]);
+		max_val = prime_fact_list[i][0] > max_val ? prime_fact_list[i][0] : max_val;
 	}
 
-	//n개의 숫자들 중 max값 구하기
-	int max_val = prime_fact_list[0][0];
-	for (int i = 0; i<n; i++) {
-		max_val = max(max_val, prime_fact_list[i][0]);
-	}
 
 	//소수 판별 후 소수 리스트에 저장 => 여기에서 시간제한..?ㅠ
 	//***주의*** ex) max_val=908963이면 2x2x2x113621인데, 만약 루트씌워버리면 최대 1000까지밖에 prime_list에 안들어감!!!
